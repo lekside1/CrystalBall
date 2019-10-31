@@ -1,0 +1,34 @@
+=============
+Crystal Ball  
+=============
+
+Crystal Ball is a simple app in which you ask a question 
+and the crystal ball guides you.  
+
+============
+Requirements 
+============
+    Python2 or later 
+    Python3 (Recommended)
+    pip
+    Pillow 
+
+===
+Run
+===
+    go to crystalball directory 
+    in terminal 
+        if using Python2
+            $ python crystalball.py
+        
+        if using Python3
+            $ python3 crystalball.py
+
+=============
+Functionality 
+=============
+    Supports three languages: English, French, Japanese
+        Can be toggled between by the button on bottom middle
+
+    Toggle between Light | Dark mode 
+        Button at the top right corner 
