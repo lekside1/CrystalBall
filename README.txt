@@ -16,13 +16,14 @@ Requirements
 ===
 Run
 ===
-    go to crystalball directory 
-    in terminal 
+    Go to crystalball directory 
+    In terminal 
         if using Python2
             $ python crystalball.py
         
         if using Python3
             $ python3 crystalball.py
+     --> will to to figure out a way to simplify running the app 
 
 =============
 Functionality 
@@ -34,7 +35,7 @@ Functionality
         Button at the top right corner 
     
     Ask your question, then click on  
-        ASK -if English  
+        ASK - if English  
         DEMANDER - if French 
         尋ねる - if Japanese 
         
