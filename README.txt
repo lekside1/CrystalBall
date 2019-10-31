@@ -32,3 +32,14 @@ Functionality
 
     Toggle between Light | Dark mode 
         Button at the top right corner 
+    
+    Ask your question, then click on  
+        ASK -if English  
+        DEMANDER - if French 
+        尋ねる - if Japanese 
+        
+    To exit, simply close the window OR click on  
+        EXIT  - if English
+        SORTIE - if French
+        出口 - if Japanese
+        
