@@ -119,7 +119,6 @@ class App(object):
         # Dark | Light mode | Button
         self.mode = it.cycle(["L", "D"])
         self.color_mode = tk.Button(f2, text="D", width=2, command=self.toggle_mode)
-        self.color_mode.config(width=2)
         self.color_mode.pack(side=tk.LEFT)
     
 
