@@ -15,21 +15,21 @@ except ImportError:
     import tkinter as tk  # Python 3
 
 LANG = [
-    "EN",
     "FR",
-    "JP"
+    "JP",
+    "EN"
 ]
 
 ASK = [
-    'ASK',
     'DEMANDER',
-    '尋ねる' # Tazuneru
+    '尋ねる', # Tazuneru
+    'ASK'
 ]
 
 EXIT = [
-    'EXIT',
     'SORTIE',
-    '出口'  # Deguchi
+    '出口',  # Deguchi
+    'EXIT'
 ]   
 
 ANSWERS_EN = [
@@ -40,6 +40,7 @@ ANSWERS_EN = [
     "Not sure",
     '50/50'
 ]
+
 ANSWERS_FR = [
     'Oui',
     'Non',
@@ -75,7 +76,7 @@ class App(object):
         # Main frame 
         frame = tk.Frame(master)
         frame.pack()
-        self.f = frame 
+        self.f = frame
 
         # Secondary frame
         f2 = tk.Frame(master)
@@ -83,7 +84,7 @@ class App(object):
 
         # Crystal ball image
         try:
-            image = Image.open("image/crystalball.jpg") # image from Amazon.com 
+            image = Image.open("image/crystalball.jpg") # image from Amazon.com
         except IOError:
             pass
         image = image.resize((400,400), Image.ANTIALIAS)
@@ -100,11 +101,11 @@ class App(object):
         self.answer.place(relx=0.5, rely=0.4, anchor=tk.CENTER)
 
         # Ask Button
-        self.ask_button = tk.Button(frame, text="ASK", highlightbackground="green", command=self.get_answer)
+        self.ask_button = tk.Button(frame, text="ASK", highlightbackground="green", width=9, command=self.get_answer)
         self.ask_button.pack(side=tk.LEFT)
 
         # Exit Button
-        self.exit_button = tk.Button(frame, text="EXIT", highlightbackground="red", command=frame.quit)
+        self.exit_button = tk.Button(frame, text="EXIT", highlightbackground="red", width=9, command=frame.quit)
         self.exit_button.pack(side=tk.RIGHT)
 
         # Language choice | Button
@@ -112,23 +113,26 @@ class App(object):
         self.ask_lang = it.cycle(ASK)
         self.exit_lang = it.cycle(EXIT)
 
-        self.lang_button = tk.Button(frame, text=LANG[0], highlightbackground="aqua", command=self.toggle_lang)
-        self.lang_button.pack() 
+        self.lang_button = tk.Button(frame, text="EN", highlightbackground="aqua", command=self.toggle_lang)
+        self.lang_button.pack()
 
         # Dark | Light mode | Button
-        self.mode = it.cycle(["D", "L"])
-        self.color_mode = tk.Button(f2, text="D", command=self.toggle_mode)
-        self.color_mode.pack(side=tk.LEFT) 
+        self.mode = it.cycle(["L", "D"])
+        self.color_mode = tk.Button(f2, text="D", width=2, command=self.toggle_mode)
+        self.color_mode.config(width=2)
+        self.color_mode.pack(side=tk.LEFT)
     
 
     # Method to get answer depending on language choice
     def get_answer(self):
-        if self.lang_button['text'] == LANG[0]:
-            self.english()
-        elif self.lang_button['text'] == LANG[1]:
-            self.french()
-        else: 
-            self.japanese() 
+        # if self.lang_button['text'] == LANG[0]:
+        #     self.english()
+        # elif self.lang_button['text'] == LANG[1]:
+        #     self.french()
+        # else:
+        #     self.japanese()
+        check = self.lang_button['text']
+        self.english() if check == "EN" else self.french() if check == "FR" else self.japanese()
 
 
     # Different language options 
@@ -152,32 +156,29 @@ class App(object):
 
 
     # Method to toggle between dark | light mode 
-    def toggle_mode(self):      
-        self.color_mode['text'] = next(self.mode)   
-        if self.color_mode['text'] == "D":
-            self.light_mode()
-        else:
-            self.dark_mode()
+    def toggle_mode(self):
+        self.color_mode['text'] = next(self.mode)
+        self.light_mode() if self.color_mode['text'] == "D" else self.dark_mode()
 
 
     # Method to set light mode 
     def light_mode(self):
-        self.color_mode.configure(highlightbackground="white")
-        self.ask_button.configure(highlightbackground="green")
-        self.exit_button.configure(highlightbackground="red")
-        self.lang_button.configure(highlightbackground="aqua")
-        self.f.configure(bg="white")
-        root.configure(bg="white") 
+        self.color_mode.config(highlightbackground="white")
+        self.ask_button.config(highlightbackground="green")
+        self.exit_button.config(highlightbackground="red")
+        self.lang_button.config(highlightbackground="aqua")
+        self.f.config(bg="white")
+        root.config(bg="white")
     
 
     # Method to set dark mode 
     def dark_mode(self):
-        self.color_mode.configure(highlightbackground="black")
-        self.ask_button.configure(highlightbackground="black")
-        self.exit_button.configure(highlightbackground="black")
-        self.lang_button.configure(highlightbackground="black")
-        self.f.configure(bg="black")
-        root.configure(bg="black")
+        self.color_mode.config(highlightbackground="black")
+        self.ask_button.config(highlightbackground="black")
+        self.exit_button.config(highlightbackground="black")
+        self.lang_button.config(highlightbackground="black")
+        self.f.config(bg="black")
+        root.config(bg="black")
 
 # end of class 
     
