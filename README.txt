@@ -10,8 +10,12 @@ Requirements
 ============
     Python2 or later 
     Python3 (Recommended)
-    pip
-    Pillow 
+    pip 
+
+    ++++++++++++
+    Dependencies
+    ++++++++++++
+        $ pip install pillow
 
 ===
 Run
@@ -21,9 +25,8 @@ Run
         if using Python2
             $ python crystalball.py
         
-        if using Python3
+        if using Python3 (Recommended)
             $ python3 crystalball.py
-     --> will to to figure out a way to simplify running the app 
 
 =============
 Functionality 
